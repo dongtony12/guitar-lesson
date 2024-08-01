@@ -1,6 +1,4 @@
-const Home = ({ qwe }: { qwe: any }) => {
-  console.log('?')
-
+const Home = () => {
   return (
     <div>
       <h1>Home</h1>

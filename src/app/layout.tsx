@@ -8,14 +8,16 @@ export const metadata: Metadata = {
   title: 'guitar-lessons',
 }
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode
-}>) {
+}>) => {
   return (
     <html lang="en">
       <body className={notoSans.className}>{children}</body>
     </html>
   )
 }
+
+export default RootLayout
