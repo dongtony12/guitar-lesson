@@ -1,11 +1,13 @@
+import { Header } from '@/components'
 import type { Metadata } from 'next'
 import { Noto_Sans } from 'next/font/google'
+
 import './globals.css'
 
 const notoSans = Noto_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'guitar-lessons',
+  title: 'Guitar String Training',
 }
 
 const RootLayout = ({
@@ -15,7 +17,11 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={notoSans.className}>{children}</body>
+      <body className={notoSans.className}>
+        <Header />
+
+        <main className="p-5">{children}</main>
+      </body>
     </html>
   )
 }

@@ -1,0 +1,47 @@
+.starryBackground {
+  background: rgb(3, 23, 22);
+  position: relative;
+  overflow: hidden;
+}
+
+.starryBackground::before,
+.starryBackground::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.starryBackground::before {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 2px,
+    transparent 2px
+  );
+  background-size: 75px 75px;
+  animation: animateStars 50s linear infinite;
+}
+
+.starryBackground::after {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 2px,
+    transparent 2px
+  );
+  background-size: 150px 150px;
+  animation: animateStars 100s linear infinite;
+}
+
+@keyframes animateStars {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  100% {
+    transform: translate3d(-1000px, -1000px, 0px);
+  }
+}

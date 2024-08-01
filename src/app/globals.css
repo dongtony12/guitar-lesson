@@ -31,3 +31,12 @@ p {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Custom styles */
+header {
+  padding: 0;
+}
+
+main {
+  padding: 2rem;
+}
