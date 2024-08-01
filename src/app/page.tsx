@@ -1,5 +1,11 @@
-import Image from "next/image";
+const Home = ({ qwe }: { qwe: any }) => {
+  console.log('?')
 
-export default function Home() {
-  return <div>dsf123123213213</div>
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  )
 }
+
+export default Home

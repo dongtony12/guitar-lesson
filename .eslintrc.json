@@ -1,3 +1,63 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": ["hooks", "prefer-arrow"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "object-shorthand": "warn",
+    "@next/next/no-img-element": "off",
+    "eslint-disable-next-line": "off",
+    "react/display-name": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "prefer-destructuring": "warn",
+    "prefer-template": "warn",
+    "newline-before-return": "warn",
+    "no-else-return": "warn",
+    "no-console": ["warn", { "allow": ["error"] }],
+    "require-await": "warn",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": { "order": "asc" },
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ]
+      }
+    ],
+    "hooks/sort": [
+      "error",
+      {
+        "groups": [
+          "useState",
+          "useRef",
+          "useQuery",
+          "useMutation",
+          "useMemo",
+          "useEffect",
+          "useCallback"
+        ]
+      }
+    ],
+    "prefer-arrow/prefer-arrow-functions": [
+      "warn",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false
+      }
+    ]
+  },
+  "ignorePatterns": ["node_modules/", "dist/", "build/", ".yarn/"]
 }
