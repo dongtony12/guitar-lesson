@@ -8,8 +8,8 @@ const Header = () => {
         <Image
           src="/guitar-cover.jpg"
           alt="Guitar Cover"
-          layout="fill"
-          objectFit="cover"
+          object-fit="cover"
+          fill={true}
           className="w-full h-60 object-cover"
         />
       </div>
