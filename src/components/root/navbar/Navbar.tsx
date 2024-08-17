@@ -1,19 +1,18 @@
-import React from 'react'
 import Link from 'next/link'
 import styles from './NavBar.module.css'
 
-const NavBar: React.FC = () => {
+const NavBar = () => {
   return (
-    <nav className={`${styles.starryBackground} p-4`}>
-      <ul className="flex space-x-4 justify-center">
+    <nav className={`${styles.starryBackground} py-4 px-10`}>
+      <ul className="flex space-x-8 ">
         <li className="text-white hover:text-gray-400 cursor-pointer">
-          <Link href="/">홈으로 가기</Link>
+          <Link href="/">홈</Link>
         </li>
         <li className="text-white hover:text-gray-400 cursor-pointer">
           <Link href="/chord-practice">코드 연습</Link>
         </li>
         <li className="text-white hover:text-gray-400 cursor-pointer">
-          <Link href="/scale-practice">스케일 연습sad</Link>
+          <Link href="/scale-practice">스케일 연습</Link>
         </li>
       </ul>
     </nav>

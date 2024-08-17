@@ -1,4 +1,4 @@
-import { Header } from '@/components'
+import { Footer, Header } from '@/components'
 import type { Metadata } from 'next'
 import { Noto_Sans } from 'next/font/google'
 
@@ -20,7 +20,11 @@ const RootLayout = ({
       <body className={notoSans.className}>
         <Header />
 
-        <main className="p-5">{children}</main>
+        <main className="px-8 md:px-20 lg:px-32 xl:px-48 py-8 text-center h-screen overflow-auto">
+          {children}
+        </main>
+
+        <Footer />
       </body>
     </html>
   )
