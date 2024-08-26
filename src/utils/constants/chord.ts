@@ -1,12 +1,4 @@
-/**
- * @description 줄 개수
- */
-export const STRING_COUNT = 6
-
-/**
- * @description 프렛 개수
- */
-export const FRET_COUNT = 12
+import { ChordData } from '@/types/chord.types'
 
 export const CHORDS = [
   'C',
@@ -72,21 +64,9 @@ export const RELATED_CHORDS = [
 ]
 
 /**
- * @description standard tuning 기준 줄 구성음
- */
-export const STRING_NOTES = [
-  ['E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#'], // 6th string
-  ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'], // 5th string
-  ['D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#'], // 4th string
-  ['G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#'], // 3rd string
-  ['B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#'], // 2nd string
-  ['E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#'], // 1st string
-]
-
-/**
  * @description 코드 구성음
  */
-export const CHORD_DATA = {
+export const CHORD_DATA: ChordData = {
   C: {
     major: ['C', 'E', 'G'],
     minor: ['C', 'Eb', 'G'],

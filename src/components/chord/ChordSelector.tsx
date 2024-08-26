@@ -1,14 +1,28 @@
 'use client'
 
-import React, { useState } from 'react'
-import { CHORDS, RELATED_CHORDS } from '@/utils/constants'
-import Image from 'next/image'
+import React, { ChangeEvent, useState } from 'react'
+import useChordStore from '@/store/chordStore'
+import { ChordType } from '@/types/chord.types'
+import { CHORD_DATA, CHORDS, RELATED_CHORDS } from '@/utils/constants/chord'
 
 const ChordSelector: React.FC = () => {
+  const setSelectedNotes = useChordStore((state) => state.setSelectedNotes)
+
   const [selectedChord, setSelectedChord] = useState<string | null>('C')
+  const [selectedType, setSelectedType] = useState<ChordType | null>('major')
 
   const handleChordClick = (chord: string) => {
     setSelectedChord(chord)
+  }
+
+  const handleTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const type = event.target.value as ChordType
+    setSelectedType(type)
+
+    if (selectedChord && type) {
+      const notes = CHORD_DATA[selectedChord][type]
+      setSelectedNotes(notes || [])
+    }
   }
 
   return (
@@ -30,10 +44,11 @@ const ChordSelector: React.FC = () => {
       </div>
 
       {selectedChord && (
-        <div className="relative flex w-full items-center">
+        <div className="relative">
           <select
-            className="flex w-full mt-2 p-2 border border-gray-400 rounded appearance-none bg-white"
-            defaultValue=""
+            className="block w-full mt-2 p-2 border border-gray-400 rounded appearance-none bg-white"
+            value={selectedType || ''}
+            onChange={handleTypeChange}
           >
             <option value="" disabled>
               Select a chord type
@@ -44,14 +59,14 @@ const ChordSelector: React.FC = () => {
               </option>
             ))}
           </select>
-
-          <div className="absolute right-0 px-2 pointer-events-none">
-            <Image
-              src={'/svg/arrow-bottom-black.svg'}
-              width={24}
-              height={24}
-              alt="arrow-bottom-black"
-            />
+          <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+            <svg
+              className="w-4 h-4 fill-current text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path d="M5.516 7.548a1 1 0 011.366-.366l.094.063 3.507 2.602 3.507-2.602a1 1 0 011.459 1.366l-.063.094-4 3a1 1 0 01-1.123.063l-.094-.063-4-3a1 1 0 01-.23-1.366z" />
+            </svg>
           </div>
         </div>
       )}
