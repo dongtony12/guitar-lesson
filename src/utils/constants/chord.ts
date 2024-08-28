@@ -1,4 +1,4 @@
-import { ChordData } from '@/types/chord.types'
+import type { ChordData } from '@/types/chord.types'
 
 export const CHORDS = [
   'C',

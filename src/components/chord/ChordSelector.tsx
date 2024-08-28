@@ -1,11 +1,11 @@
 'use client'
 
-import React, { ChangeEvent, useState } from 'react'
+import React, { type ChangeEvent, useEffect, useState } from 'react'
 import useChordStore from '@/store/chordStore'
-import { ChordType } from '@/types/chord.types'
+import type { ChordType } from '@/types/chord.types'
 import { CHORD_DATA, CHORDS, RELATED_CHORDS } from '@/utils/constants/chord'
 
-const ChordSelector: React.FC = () => {
+const ChordSelector = () => {
   const setSelectedNotes = useChordStore((state) => state.setSelectedNotes)
 
   const [selectedChord, setSelectedChord] = useState<string | null>('C')
@@ -18,12 +18,14 @@ const ChordSelector: React.FC = () => {
   const handleTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const type = event.target.value as ChordType
     setSelectedType(type)
+  }
 
-    if (selectedChord && type) {
-      const notes = CHORD_DATA[selectedChord][type]
+  useEffect(() => {
+    if (selectedChord && selectedType) {
+      const notes = CHORD_DATA[selectedChord][selectedType]
       setSelectedNotes(notes || [])
     }
-  }
+  }, [selectedChord, selectedType])
 
   return (
     <div className="p-4">
@@ -59,6 +61,7 @@ const ChordSelector: React.FC = () => {
               </option>
             ))}
           </select>
+
           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
             <svg
               className="w-4 h-4 fill-current text-gray-500"

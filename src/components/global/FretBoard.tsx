@@ -3,10 +3,18 @@
 import React from 'react'
 import useChordStore from '@/store/chordStore'
 import { FRET_COUNT, STRING_COUNT } from '@/utils/constants/general'
-import { STRING_NOTES } from '@/utils/constants/note'
+import { ENHARMONIC_EQUIVALENTS, STRING_NOTES } from '@/utils/constants/note'
 
 const FretBoard = () => {
   const selectedNotes = useChordStore((state) => state.selectedNotes)
+
+  const convertNote = (note: string) => {
+    if (selectedNotes.includes(note)) {
+      return note
+    }
+
+    return ENHARMONIC_EQUIVALENTS[note]
+  }
 
   return (
     <div className="p-4 border-2 border-gray-800 rounded-lg bg-white">
@@ -28,7 +36,8 @@ const FretBoard = () => {
           {/* 프렛 */}
           {[...Array(FRET_COUNT)].map((_, fretIndex) => {
             const note = STRING_NOTES[stringIndex][fretIndex]
-            const isNoteSelected = selectedNotes.includes(note)
+            const displayedNote = convertNote(note) // 변환된 음 표시
+            const isNoteSelected = selectedNotes.includes(displayedNote)
 
             return (
               <div
@@ -37,7 +46,7 @@ const FretBoard = () => {
               >
                 {isNoteSelected && (
                   <div className="w-6 h-6 rounded-full bg-blue-600 text-white">
-                    {note}
+                    {displayedNote}
                   </div>
                 )}
               </div>
