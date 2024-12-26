@@ -3402,6 +3402,7 @@ __metadata:
     prettier: "npm:^3.0.3"
     react: "npm:^18"
     react-dom: "npm:^18"
+    tailwind-merge: "npm:^2.6.0"
     tailwindcss: "npm:^3.4.1"
     typescript: "npm:^5.5.4"
     zustand: "npm:^4.5.5"
@@ -6196,6 +6197,13 @@ __metadata:
     "@pkgr/core": "npm:^0.1.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/d8b89e1bf30ba3ffb469d8418c836ad9c0c062bf47028406b4d06548bc66af97155ea2303b96c93bf5c7c0f0d66153a6fbd6924c76521b434e6a9898982abc2e
+  languageName: node
+  linkType: hard
+
+"tailwind-merge@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "tailwind-merge@npm:2.6.0"
+  checksum: 10c0/fc8a5535524de9f4dacf1c16ab298581c7bb757d68a95faaf28942b1c555a619bba9d4c6726fe83986e44973b315410c1a5226e5354c30ba82353bd6d2288fa5
   languageName: node
   linkType: hard
 

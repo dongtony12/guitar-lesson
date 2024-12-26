@@ -1,9 +1,10 @@
-import { FretBoard } from '@/components'
+import { FretBoard, KeySelector } from '@/components'
 
 const ScalePracticePage = () => {
   return (
     <div>
       <h1>Scale Practice</h1>
+      <KeySelector />
       <FretBoard />
     </div>
   )

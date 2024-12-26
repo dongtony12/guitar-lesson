@@ -18,7 +18,6 @@ const FretBoard = () => {
 
   return (
     <div className="p-4 border-2 border-gray-800 rounded-lg bg-white">
-      {/* 프렛 번호 표시 */}
       <div className="flex">
         <div className="w-8"></div>
         {[...Array(FRET_COUNT)].map((_, fretIndex) => (
@@ -28,15 +27,13 @@ const FretBoard = () => {
         ))}
       </div>
 
-      {/* 기타 줄과 프렛 */}
       {[...Array(STRING_COUNT)].map((_, stringIndex) => (
         <div key={stringIndex} className="flex items-center">
-          {/* 줄 번호 */}
           <div className="w-8 text-center text-sm ">{`${stringIndex + 1}:`}</div>
-          {/* 프렛 */}
+
           {[...Array(FRET_COUNT)].map((_, fretIndex) => {
             const note = STRING_NOTES[stringIndex][fretIndex]
-            const displayedNote = convertNote(note) // 변환된 음 표시
+            const displayedNote = convertNote(note)
             const isNoteSelected = selectedNotes.includes(displayedNote)
 
             return (
