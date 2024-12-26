@@ -23,7 +23,7 @@ const KeySelector = () => {
             key={key}
             onClick={() => handleKeyClick(key)}
             className={twJoin(
-              'px-4 py-2 rounded justify-evenly border',
+              'px-4 py-2 rounded border',
               selectedKey === key
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-200 text-gray-800',
